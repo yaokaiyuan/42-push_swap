@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 09:32:53 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/06/13 09:55:17 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/06/16 00:28:05 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	ft_error(char *str)
 	exit(0);
 }
 
-int		is_sorted(t_list **stack)
+int	is_sorted(t_list **stack)
 {
 	t_list	*head;
-	
+
 	head = *stack;
 	while (head && head->next)
 	{
@@ -30,4 +30,21 @@ int		is_sorted(t_list **stack)
 		head = head->next;
 	}
 	return (1);
+}
+
+int	find_index_len(t_list **stack, int index)
+{
+	t_list	*head;
+	int		len;
+
+	len = 0;
+	head = *stack;
+	while (head)
+	{
+		if (head->index == index)
+			break ;
+		len++;
+		head = head->next;
+	}
+	return (len);
 }
