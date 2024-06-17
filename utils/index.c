@@ -1,61 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 09:32:53 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/06/18 02:05:21 by ykai-yua         ###   ########.fr       */
+/*   Created: 2024/06/18 00:41:58 by ykai-yua          #+#    #+#             */
+/*   Updated: 2024/06/18 01:41:26 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(char *str)
-{
-	ft_putendl_fd(str, 1);
-	exit(0);
-}
-
-int	is_sorted(t_list **stack)
+static t_list	*find_next_min(t_list **stack)
 {
 	t_list	*head;
+	t_list	*min;
+	int		has_min;
 
 	head = *stack;
-	while (head && head->next)
+	min = NULL;
+	has_min = 0;
+	if (head)
 	{
-		if (head->value > head->next->value)
-			return (0);
-		head = head->next;
+		while (head)
+		{
+			if ((head->index == -1) && (!has_min || head->value < min->value))
+			{
+				min = head;
+				has_min = 1;
+			}
+			head = head->next;
+		}
 	}
-	return (1);
+	return (min);
 }
 
-int	find_index_len(t_list **stack, int index)
+void	index_stack(t_list **stack)
 {
 	t_list	*head;
-	int		len;
+	int		index;
 
-	len = 0;
-	head = *stack;
+	index = 0;
+	head = find_next_min(stack);
 	while (head)
 	{
-		if (head->index == index)
-			break ;
-		len++;
-		head = head->next;
+		head->index = index++;
+		head = find_next_min(stack);
 	}
-	return (len);
-}
-
-void	ft_free(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	while (i >= 0)
-		free(str[i--]);
 }

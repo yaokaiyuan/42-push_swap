@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 04:31:05 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/06/16 01:02:19 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/06/17 22:11:01 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	sort3(t_list **stack_a)
 	int		nextmin;
 
 	head = *stack_a;
-	min = find_min(stack_a, 1);
+	min = find_min(stack_a, -1);
 	nextmin = find_min(stack_a, min);
 	if (head->index == min && head->next->index != nextmin)
 	{
