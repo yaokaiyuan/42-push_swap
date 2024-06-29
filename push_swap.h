@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 21:21:25 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/06/18 02:07:03 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/06/29 16:59:07 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,10 @@ static t_list	*find_next_min(t_list **stack);
 void			index_stack(t_list **stack);
 void			ft_free(char **str);
 static void		initstack(t_list **stack, int ac, char **av);
+static void 	sortstack(t_list **stack_a, t_list **stack_b);
+
+static int		ft_check_array(int num, char **av, int i);
+static int		ft_isnum(char *num);
+void			ft_check_args(int ac, char **av);
 
 #endif

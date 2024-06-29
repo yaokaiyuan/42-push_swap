@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 01:52:44 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/06/18 02:01:37 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/06/29 20:47:27 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*ft_lstnew(int *value)
 	if (node == NULL)
 		return (NULL);
 	node->value = value;
-	node->value = -1;
+	node->index = -1;
 	node->next = NULL;
 	return (node);
 }
