@@ -31,7 +31,7 @@ static int	ft_isnum(char *num)
 	int	i;
 
 	i = 0;
-	if (num[i] == '-1')
+	if (num[i] == '-')
 		i++;
 	while (num[i])
 	{
