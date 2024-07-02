@@ -51,6 +51,10 @@ static int		count_max_bits(t_list **stack);
 void			radix_sort(t_list **stack_a, t_list **stack_b);
 
 t_list			*ft_lstnew(int *value);
+void			ft_lstadd_front(t_list **lst, t_list *new);
+t_list			*ft_lstlast(t_list *lst);
+void			ft_lstadd_back(t_list **lst, t_list *new);
+size_t			ft_lstsize(t_list *lst);
 static t_list	*find_next_min(t_list **stack);
 void			index_stack(t_list **stack);
 void			ft_free(char **str);

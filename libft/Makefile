@@ -46,18 +46,7 @@ SRCS	=	ft_atoi.c \
 			ft_tolower.c \
 			ft_toupper.c 
 
-SRCS_B	=   ft_lstadd_back.c \
-			ft_lstadd_front.c \
-			ft_lstclear.c \
-			ft_lstdelone.c \
-			ft_lstiter.c \
-			ft_lstlast.c \
-			ft_lstmap.c \
-			ft_lstnew.c \
-			ft_lstsize.c
-
 OBJS	= $(SRCS:.c=.o)
-OBJS_B	= $(SRCS_B:.c=.o)
 RM		= rm -f
 LIBC	= ar -rcs
 FLAGS	= -Wall -Wextra -Werror
@@ -71,14 +60,11 @@ $(NAME): ${OBJS}
 
 all: $(NAME)
 
-bonus: $(NAME) $(OBJS_B)
-	${LIBC} $(NAME) $(OBJS_B)
-
 fclean: clean
-	$(RM) $(NAME) $(bonus)
+	$(RM) $(NAME)
 
 clean:
-	$(RM) -f $(OBJS) $(OBJS_B)
+	$(RM) -f $(OBJS)
 
 re: fclean all
 
