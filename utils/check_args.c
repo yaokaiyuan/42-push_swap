@@ -12,10 +12,12 @@
 
 #include "push_swap.h"
 
-static int	ft_check_duplicate(int num, char **av, int i)
+static int	ft_check_duplicate(int num, char **av, int total_args)
 {
-	i++;
-	while (av[i])
+	int	i;
+
+	i = 0;
+	while (i < total_args)
 	{
 		if (ft_atoi(av[i]) == num)
 			return (1);
@@ -29,7 +31,7 @@ static int	ft_isnum(char *num)
 	int	i;
 
 	i = 0;
-	if (num[0] == '-1')
+	if (num[i] == '-1')
 		i++;
 	while (num[i])
 	{
@@ -40,31 +42,56 @@ static int	ft_isnum(char *num)
 	return (1);
 }
 
+static int	ft_check_overflow(const char *num_str)
+{
+	const char	*int_min_str;
+	const char	*int_max_str;
+	size_t		len;
+	int			is_neg;
+
+	*int_min_str = "-2147483648";
+	*int_max_str = "2147483647";
+	len = ft_strlen(num_str);
+	is_neg = 0;
+	if (num_str[0] == '-')
+	{
+		is_neg = 1;
+		num_str++;
+		len--;
+	}
+	if ((is_neg && len > ft_strlen(int_min_str) - 1) || (!is_neg && len > strlen(int_max_str)))
+    	return (1);
+	if ((is_neg && len == ft_strlen(int_min_str) - 1 && ft_strncmp(num_str, int_min_str + 1, len) > 0) ||
+        (!is_neg && len == ft_strlen(int_max_str) && ft_strncmp(num_str, int_max_str, len) > 0))
+        return (1);
+	return (0);
+}
+
 void	ft_check_args(int ac, char **av)
 {
 	int		i;
-	long	tmp;
+	int		j;
 	char	**args;
+	int		total_args;
 
-	i = 0;
-	if (ac == 2)
-		args = ft_split(av[1], ' ');
-	else
-	{
-		i = 1;
-		args = av;
-	}
-	while (args[i])
-	{
-		tmp = ft_atoi(args[i]);
-		if (!ft_isnum(args[i]))
-			ft_error("Error");
-		if (ft_check_duplicate(tmp, args, i))
-			ft_error("Error");
-		if (tmp < -2147483648 || tmp > 2147483647)
-			ft_error("Error");
+	total_args = 0;
+	i = 1;
+	while (i < ac)
+    {
+        args = ft_split(av[i], ' ');
+        j = 0;
+        while (args[j])
+        {
+            if (!ft_isnum(args[j]))
+                ft_error("Error");
+            if (ft_check_overflow(args[j]))
+                ft_error("Error");
+            if (ft_check_duplicate(tmp, av, total_args))
+                ft_error("Error");
+            total_args++;
+            j++;
+        }
+        ft_free(args);
 		i++;
-	}
-	if (ac == 2)
-		ft_free(args);
+    }
 }

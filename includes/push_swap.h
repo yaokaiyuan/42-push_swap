@@ -57,8 +57,10 @@ void			ft_free(char **str);
 static void		initstack(t_list **stack, int ac, char **av);
 static void 	sortstack(t_list **stack_a, t_list **stack_b);
 
-static int		ft_check_array(int num, char **av, int i);
+static int		ft_check_duplicate(int num, char **av, int total_args);
 static int		ft_isnum(char *num);
+static int		ft_check_overflow(const char *num_str);
 void			ft_check_args(int ac, char **av);
+void			ft_free_stack(t_list **stack);
 
 #endif
