@@ -24,3 +24,5 @@ t_list	*ft_lstnew(int *value)
 	node->next = NULL;
 	return (node);
 }
+
+//add tools delete linked list in libft

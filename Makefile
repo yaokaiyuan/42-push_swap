@@ -11,7 +11,7 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes
 
 RM = rm -rf
 
-all: ${NAME} ${CHECK}
+all: ${NAME}
 ${NAME}: ${OBJS}
 	@${MAKE} -C ./libft
 	@${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
