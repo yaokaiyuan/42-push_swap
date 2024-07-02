@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int *value)
+t_list	*ft_lstnew(int value)
 {
 	t_list	*node;
 
@@ -69,7 +69,7 @@ size_t	ft_lstsize(t_list *lst)
 	size_t	len;
 	t_list	*tmp;
 
-	tmp = *lst;
+	tmp = lst;
 	len = 0;
 	while (tmp)
 	{

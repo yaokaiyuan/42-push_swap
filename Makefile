@@ -2,7 +2,7 @@
 
 NAME = push_swap
 
-SRCS =  $(wildcard src/*.c utils/*.c)
+SRCS =  $(wildcard src/instructions/*.c src/*.c utils/*.c)
 
 OBJS = $(SRCS:.c=.o)
 

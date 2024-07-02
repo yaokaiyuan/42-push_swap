@@ -39,31 +39,20 @@ int				rra(t_list **stack_a);
 int				rrb(t_list **stack_b);
 int				rrr(t_list **stack_a, t_list **stack_b);
 
-static int		find_min(t_list **stack, int val);
 int				is_sorted(t_list **stack);
 int				find_index_len(t_list **stack, int index);
-static void		sort3(t_list **stack_a);
-static void		sort4(t_list **stack_a, t_list **stack_b);
-static void		sort5(t_list **stack_a, t_list **stack_b);
 void			simple_sort(t_list **stack_a, t_list **stack_b);
 
-static int		count_max_bits(t_list **stack);
 void			radix_sort(t_list **stack_a, t_list **stack_b);
 
-t_list			*ft_lstnew(int *value);
+t_list			*ft_lstnew(int value);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 t_list			*ft_lstlast(t_list *lst);
 void			ft_lstadd_back(t_list **lst, t_list *new);
 size_t			ft_lstsize(t_list *lst);
-static t_list	*find_next_min(t_list **stack);
 void			index_stack(t_list **stack);
 void			ft_free(char **str);
-static void		initstack(t_list **stack, int ac, char **av);
-static void 	sortstack(t_list **stack_a, t_list **stack_b);
 
-static int		ft_check_duplicate(int num, char **av, int total_args);
-static int		ft_isnum(char *num);
-static int		ft_check_overflow(const char *num_str);
 void			ft_check_args(int ac, char **av);
 void			ft_free_stack(t_list **stack);
 

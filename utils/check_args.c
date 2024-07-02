@@ -49,8 +49,8 @@ static int	ft_check_overflow(const char *num_str)
 	size_t		len;
 	int			is_neg;
 
-	*int_min_str = "-2147483648";
-	*int_max_str = "2147483647";
+	int_min_str = "-2147483648";
+	int_max_str = "2147483647";
 	len = ft_strlen(num_str);
 	is_neg = 0;
 	if (num_str[0] == '-')
@@ -59,10 +59,10 @@ static int	ft_check_overflow(const char *num_str)
 		num_str++;
 		len--;
 	}
-	if ((is_neg && len > ft_strlen(int_min_str) - 1) || (!is_neg && len > strlen(int_max_str)))
+	if ((is_neg && len > 10) || (!is_neg && len > 10))
     	return (1);
-	if ((is_neg && len == ft_strlen(int_min_str) - 1 && ft_strncmp(num_str, int_min_str + 1, len) > 0) ||
-        (!is_neg && len == ft_strlen(int_max_str) && ft_strncmp(num_str, int_max_str, len) > 0))
+	if ((is_neg && len == 10 && ft_strncmp(num_str, int_min_str + 1, len) > 0) ||
+        (!is_neg && len == 10 && ft_strncmp(num_str, int_max_str, len) > 0))
         return (1);
 	return (0);
 }
@@ -71,6 +71,7 @@ void	ft_check_args(int ac, char **av)
 {
 	int		i;
 	int		j;
+	long	tmp;
 	char	**args;
 	int		total_args;
 
@@ -82,11 +83,8 @@ void	ft_check_args(int ac, char **av)
         j = 0;
         while (args[j])
         {
-            if (!ft_isnum(args[j]))
-                ft_error("Error");
-            if (ft_check_overflow(args[j]))
-                ft_error("Error");
-            if (ft_check_duplicate(tmp, av, total_args))
+			tmp = ft_atoi(args[j]);
+            if (!ft_isnum(args[j]) || ft_check_overflow(args[j]) || ft_check_duplicate(tmp, av, total_args))
                 ft_error("Error");
             total_args++;
             j++;
