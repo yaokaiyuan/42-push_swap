@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 00:11:15 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/06/29 21:24:35 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:31:27 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	initstack(t_list **stack, int ac, char **av)
 	index_stack(stack);
 }
 
-static void sortstack(t_list **stack_a, t_list **stack_b)
+static void	sortstack(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_lstsize(*stack_a) < 6)
 		simple_sort(stack_a, stack_b);

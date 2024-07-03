@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 15:49:11 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/06/29 21:53:54 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:36:31 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ static int	ft_check_overflow(const char *num_str)
 		len--;
 	}
 	if ((is_neg && len > 10) || (!is_neg && len > 10))
-    	return (1);
-	if ((is_neg && len == 10 && ft_strncmp(num_str, int_min_str + 1, len) > 0) ||
-        (!is_neg && len == 10 && ft_strncmp(num_str, int_max_str, len) > 0))
-        return (1);
+		return (1);
+	if ((is_neg && len == 10 && ft_strncmp(num_str, int_min_str + 1, len) > 0)
+		|| (!is_neg && len == 10 && ft_strncmp(num_str, int_max_str, len) > 0))
+		return (1);
 	return (0);
 }
 
@@ -78,18 +78,19 @@ void	ft_check_args(int ac, char **av)
 	total_args = 0;
 	i = 1;
 	while (i < ac)
-    {
-        args = ft_split(av[i], ' ');
-        j = 0;
-        while (args[j])
-        {
+	{
+		args = ft_split(av[i], ' ');
+		j = 0;
+		while (args[j])
+		{
 			tmp = ft_atoi(args[j]);
-            if (!ft_isnum(args[j]) || ft_check_overflow(args[j]) || ft_check_duplicate(tmp, av, total_args))
-                ft_error("Error");
-            total_args++;
-            j++;
-        }
-        ft_free(args);
+			if (!ft_isnum(args[j]) || ft_check_overflow(args[j])
+				|| ft_check_duplicate(tmp, av, total_args))
+				ft_error("Error");
+			total_args++;
+			j++;
+		}
+		ft_free(args);
 		i++;
-    }
+	}
 }
