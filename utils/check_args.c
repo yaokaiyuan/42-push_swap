@@ -6,21 +6,27 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 15:49:11 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/07/03 18:36:31 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/07/03 21:41:43 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_check_duplicate(int num, char **av, int total_args)
+static int	ft_check_duplicate(char **av)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	while (i < total_args)
+	i = 1;
+	while (av[i])
 	{
-		if (ft_atoi(av[i]) == num)
-			return (1);
+		j = i + 1;
+		while (av[j])
+		{
+			if (ft_atoi(av[i]) == ft_atoi(av[j]))
+				return (1);
+			j++;
+		}
 		i++;
 	}
 	return (0);
@@ -71,11 +77,8 @@ void	ft_check_args(int ac, char **av)
 {
 	int		i;
 	int		j;
-	long	tmp;
 	char	**args;
-	int		total_args;
 
-	total_args = 0;
 	i = 1;
 	while (i < ac)
 	{
@@ -83,11 +86,9 @@ void	ft_check_args(int ac, char **av)
 		j = 0;
 		while (args[j])
 		{
-			tmp = ft_atoi(args[j]);
 			if (!ft_isnum(args[j]) || ft_check_overflow(args[j])
-				|| ft_check_duplicate(tmp, av, total_args))
+				|| ft_check_duplicate(av))
 				ft_error("Error");
-			total_args++;
 			j++;
 		}
 		ft_free(args);

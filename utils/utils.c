@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 09:32:53 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/06/18 02:05:21 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/07/03 21:13:38 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_error(char *str)
 {
 	ft_putendl_fd(str, 1);
-	exit(0);
+	exit(1);
 }
 
 int	is_sorted(t_list **stack)
