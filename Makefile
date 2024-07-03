@@ -6,7 +6,7 @@
 #    By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/03 18:30:30 by ykai-yua          #+#    #+#              #
-#    Updated: 2024/07/03 18:30:38 by ykai-yua         ###   ########.fr        #
+#    Updated: 2024/07/03 19:54:49 by ykai-yua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,15 +23,15 @@ RM = rm -rf
 
 all: ${NAME}
 ${NAME}: ${OBJS}
-	@${MAKE} -C ./libft
-	@${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
+	${MAKE} -C ./libft
+	${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
 
 clean: 
-	@${MAKE} -C ./libft fclean
-	@${RM} ${OBJS}
+	${MAKE} -C ./libft fclean
+	${RM} ${OBJS}
 
 fclean: clean
-	@${RM} ${NAME}
+	 ${RM} ${NAME}
 
 re: fclean all
 
