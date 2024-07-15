@@ -6,13 +6,13 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 00:41:58 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/06/18 01:41:26 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:41:07 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_list	*find_next_min(t_list **stack)
+t_list	*find_next_min(t_list **stack)
 {
 	t_list	*head;
 	t_list	*min;

@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 21:21:25 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/06/29 16:59:07 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:42:09 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void			ft_lstadd_front(t_list **lst, t_list *new);
 t_list			*ft_lstlast(t_list *lst);
 void			ft_lstadd_back(t_list **lst, t_list *new);
 size_t			ft_lstsize(t_list *lst);
+t_list			*find_next_min(t_list **stack);
 void			index_stack(t_list **stack);
 void			ft_free(char **str);
 
