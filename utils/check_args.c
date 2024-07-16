@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 15:49:11 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/07/03 21:41:43 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/07/16 18:49:35 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,15 @@ static int	ft_isnum(char *num)
 	return (1);
 }
 
+static int	ft_isvalid(char *str)
+{
+	if (ft_strlen(str) == 0)
+		return (1);
+	if (ft_strncmp(str, "-", 2) == 0)
+		return (1);
+	return (0);
+}
+
 static int	ft_check_overflow(const char *num_str)
 {
 	const char	*int_min_str;
@@ -82,13 +91,18 @@ void	ft_check_args(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
+		if (ft_isvalid(av[i]))
+			ft_error("Error");
 		args = ft_split(av[i], ' ');
 		j = 0;
 		while (args[j])
 		{
 			if (!ft_isnum(args[j]) || ft_check_overflow(args[j])
 				|| ft_check_duplicate(av))
+			{
+				ft_free(args);
 				ft_error("Error");
+			}
 			j++;
 		}
 		ft_free(args);

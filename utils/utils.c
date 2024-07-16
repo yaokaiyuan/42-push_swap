@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 09:32:53 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/07/03 21:13:38 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/07/16 19:02:24 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(char *str)
 {
-	ft_putendl_fd(str, 1);
+	ft_putendl_fd(str, 2);
 	exit(1);
 }
 
@@ -58,6 +58,7 @@ void	ft_free(char **str)
 		i++;
 	while (i >= 0)
 		free(str[i--]);
+	free(str);
 }
 
 void	ft_free_stack(t_list **stack)
