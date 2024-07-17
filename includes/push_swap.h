@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 21:21:25 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/07/04 18:42:09 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:50:09 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ void			ft_free(char **str);
 
 void			ft_check_args(int ac, char **av);
 void			ft_free_stack(t_list **stack);
+
+int				ft_isspace(char c);
 
 #endif

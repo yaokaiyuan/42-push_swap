@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 00:41:58 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/07/04 18:41:07 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:54:18 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,10 @@ void	index_stack(t_list **stack)
 		head->index = index++;
 		head = find_next_min(stack);
 	}
+}
+
+int	ft_isspace(char c)
+{
+	return (c == ' ' || c == '\t' || c == '\n'
+		|| c == '\v' || c == '\f' || c == '\r');
 }

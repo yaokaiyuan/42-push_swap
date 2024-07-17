@@ -6,7 +6,7 @@
 /*   By: ykai-yua <ykai-yua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 15:49:11 by ykai-yua          #+#    #+#             */
-/*   Updated: 2024/07/16 18:49:35 by ykai-yua         ###   ########.fr       */
+/*   Updated: 2024/07/17 18:06:17 by ykai-yua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,20 @@ static int	ft_isnum(char *num)
 
 static int	ft_isvalid(char *str)
 {
+	int	i;
+
 	if (ft_strlen(str) == 0)
 		return (1);
 	if (ft_strncmp(str, "-", 2) == 0)
 		return (1);
-	return (0);
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isspace(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 static int	ft_check_overflow(const char *num_str)
